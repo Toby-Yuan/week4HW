@@ -1,7 +1,9 @@
 <?php
 
-$userName = $_COOKIE["uid"];
-echo $userName;
+$userName = "GUEST";
+if(isset($_COOKIE["uid"])){
+  $userName = $_COOKIE["uid"];
+}
 
 ?>
 
@@ -21,7 +23,7 @@ echo $userName;
     <td align="center" valign="baseline"><a href="login.php">登入</a> | <a href="secret.php">會員專用頁</a></td>
   </tr>
   <tr>
-    <td align="center" bgcolor="#CCCCCC">Welcome 123!</td>
+    <td align="center" bgcolor="#CCCCCC">Welcome <?= $userName ?></td>
   </tr>
 </table>
 
