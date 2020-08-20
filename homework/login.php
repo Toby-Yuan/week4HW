@@ -1,7 +1,11 @@
 <?php
 
 if(isset($_POST["btnOK"])){
-  echo "OK";
+  $userName = $_POST["txtUserName"];
+  if($userName != ""){
+    setcookie("uid", $userName);
+    echo $_COOKIE["uid"];
+  }
 }else{
   echo "GET form";
 }
