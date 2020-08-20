@@ -1,7 +1,7 @@
 <?php
 
 if(!isset($_COOKIE["uid"])){
-  header("location: index.php");
+  header("location: login.php?tologin=1");
   exit();
 }
 

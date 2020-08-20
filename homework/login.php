@@ -13,8 +13,20 @@ if(isset($_POST["btnOK"])){
     header("location: index.php");
     exit();
   }
-}else{
-  echo "GET form";
+}
+
+if(isset($_POST["btnHome"])){
+  header("location: index.php");
+  exit();
+}
+
+if(isset($_POST["btnLogin"])){
+  $userName = $_POST["txtUserName"];
+  if($userName != ""){
+    setcookie("uid", $userName);
+    header("location: secret.php");
+    exit();
+  }
 }
 
 ?>
@@ -39,7 +51,14 @@ if(isset($_POST["btnOK"])){
       <td valign="baseline"><input type="password" name="txtPassword" id="txtPassword" /></td>
     </tr>
     <tr>
-      <td colspan="2" align="center" bgcolor="#CCCCCC"><input type="submit" name="btnOK" id="btnOK" value="登入" />
+      <td colspan="2" align="center" bgcolor="#CCCCCC">
+      
+      <?php if(!isset($_GET["tologin"])) { ?>
+        <input type="submit" name="btnOK" id="btnOK" value="登入" />
+      <?php } else {?>
+        <input type="submit" name="btnLogin" id="btnLogin" value="登入" />
+      <?php } ?>
+      
       <input type="reset" name="btnReset" id="btnReset" value="重設" />
       <input type="submit" name="btnHome" id="btnHome" value="回首頁" />
       </td>
