@@ -1,3 +1,13 @@
+<?php
+
+if(isset($_POST["btnOK"])){
+  echo "OK";
+}else{
+  echo "GET form";
+}
+
+?>
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
