@@ -1,0 +1,100 @@
+可以增加很多功能: 帳密的合理性, 外觀...
+
+1. 先針對login.php, 使首頁知道是誰
+<?php
+    if(isset($_POST["btnOK"])){
+        echo "OK";
+    }else{
+        echo "GET form";
+    }
+?>
+
+2. 設定餅乾屑
+<?php
+    if(isset($_POST["btnOK"])){
+        $userName = $_POST["txtUserName"];
+        if ($userName != ""){
+            setcookie("uid", $userName);
+        }
+    }
+?>
+
+3. 傳送
+<?php
+    if(isset($_POST["btnOK"])){
+        $userName = $_POST["txtUserName"];
+        if ($userName != ""){
+            setcookie("uid", $userName);
+            header("location: index.php");
+            exit();
+        }
+    }
+?>
+
+4. secret.php, 沒有會員資料就跳到登入頁面
+<?php 
+    if (!isset($_COOKIE["uid"])){
+        header("location: login.php");
+        exit();
+    }
+?>
+
+5. index.php, 讓首頁抓取餅乾屑
+<?php
+    $userName = $_COOKIE["uid"];
+?>
+
+<td>Welcome! 123</td>
+
+6. 顯示資料
+<?php
+    $userName = "GUEST";
+    if (isset($_COOKIE["uid"])){
+        $userName = $_COOKIE["uid"];
+    }
+?>
+
+<td>Welcome! <?= $userName ?></td>
+
+7. 更改登入/登出 (登出的想法: 設定COOKIE的時效是現在)
+<?php if ($userName == "GUEST") { ?>
+    <a>登入</a>
+<?php } else { ?>
+    <a signout=1>登出</a>
+<?php } ?>
+
+8. login(), 登出系統, php $_GET()可以讀取?之後的
+<?php
+    echo $_GET("signout") . "OK";
+    exit();
+
+    if(isset($_POST["btnOK"])){
+        $userName = $_POST["txtUserName"];
+        if ($userName != ""){
+            setcookie("uid", $userName);
+            header("location: index.php");
+            exit();
+        }
+    }
+?>
+
+9. 判斷是否是登出
+<?php
+    if (isset($_GET["signout"])){
+        setcookie("uid", "GUEST", time() - 60 * 60 * 24 * 7);
+        header("location: index.php");
+        exit();
+    }
+
+    if(isset($_POST["btnOK"])){
+        $userName = $_POST["txtUserName"];
+        if ($userName != ""){
+            setcookie("uid", $userName);
+            header("location: index.php");
+            exit();
+        }
+    }
+?>
+
+10. 同樣的方法(7~9)運用在沒登入的情況時點擊會員頁會移到登入頁面,
+並且登入後會直接到會員頁
