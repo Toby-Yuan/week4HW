@@ -4,7 +4,8 @@ if(isset($_POST["btnOK"])){
   $userName = $_POST["txtUserName"];
   if($userName != ""){
     setcookie("uid", $userName);
-    echo $_COOKIE["uid"];
+    header("location: index.php");
+    exit();
   }
 }else{
   echo "GET form";
