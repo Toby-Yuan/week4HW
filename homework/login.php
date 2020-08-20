@@ -1,7 +1,10 @@
 <?php
-echo $_GET["signout"] . "OK";
-exit();
 
+if(isset($_GET["signout"])){
+  setcookie("uid", "GUEST", time() - 60 * 60 * 24 * 7);
+  header("location: index.php");
+  exit();
+}
 
 if(isset($_POST["btnOK"])){
   $userName = $_POST["txtUserName"];
