@@ -25,7 +25,7 @@ if(isset($_COOKIE["uid"])){
       <?php if($userName == "GUEST") { ?>
         <a href="login.php">登入</a> 
       <?php } else { ?>
-        <a href="login.php" signout=1>登出</a>
+        <a href="login.php?signout=1">登出</a>
       <?php } ?>
       | 
       <a href="secret.php">會員專用頁</a>

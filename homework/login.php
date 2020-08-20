@@ -1,4 +1,7 @@
 <?php
+echo $_GET["signout"] . "OK";
+exit();
+
 
 if(isset($_POST["btnOK"])){
   $userName = $_POST["txtUserName"];
