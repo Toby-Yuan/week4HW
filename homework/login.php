@@ -46,9 +46,9 @@ if(isset($_POST["btnLogin"])){
 </head>
 <body>
 <form id="form1" name="form1" method="post" action="login.php">
-  <table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
+  <table>
     <tr>
-      <td colspan="2" align="center" bgcolor="#CCCCCC"><font color="#FFFFFF">會員系統 - 登入</font></td>
+      <td colspan="2">會員系統 - 登入</td>
     </tr>
     <tr>
       <td width="80" align="center" valign="baseline">帳號</td>
@@ -59,7 +59,7 @@ if(isset($_POST["btnLogin"])){
       <td valign="baseline"><input type="password" name="txtPassword" id="txtPassword" /></td>
     </tr>
     <tr>
-      <td colspan="2" align="center" bgcolor="#CCCCCC">
+      <td colspan="2">
       
       <?php if(!isset($_GET["tologin"])) { ?>
         <input type="submit" name="btnOK" id="btnOK" value="登入" />
