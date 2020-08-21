@@ -1,7 +1,12 @@
 <?php
 
+session_start();
+
 if(isset($_GET["signout"])){
-  setcookie("uid", "GUEST", time() - 60 * 60 * 24 * 7);
+  // setcookie("uid", "GUEST", time() - 60 * 60 * 24 * 7);
+  unset($_SESSION["uid"]);
+  session_unset();
+  session_destroy();
   header("location: index.php");
   exit();
 }
@@ -9,7 +14,8 @@ if(isset($_GET["signout"])){
 if(isset($_POST["btnOK"])){
   $userName = $_POST["txtUserName"];
   if($userName != ""){
-    setcookie("uid", $userName);
+    // setcookie("uid", $userName);
+    $_SESSION["uid"] = $userName;
     header("location: index.php");
     exit();
   }
@@ -23,7 +29,8 @@ if(isset($_POST["btnHome"])){
 if(isset($_POST["btnLogin"])){
   $userName = $_POST["txtUserName"];
   if($userName != ""){
-    setcookie("uid", $userName);
+    // setcookie("uid", $userName);
+    $_SESSION["uid"] = $userName;
     header("location: secret.php");
     exit();
   }
