@@ -1,8 +1,10 @@
 <?php
 
+session_start();
+
 $userName = "GUEST";
-if(isset($_COOKIE["uid"])){
-  $userName = $_COOKIE["uid"];
+if(isset($_SESSION["uid"])){
+  $userName = $_SESSION["uid"];
 }
 
 ?>
