@@ -42,7 +42,6 @@ if(isset($_POST["btnLogin"])){
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Lab - Login</title>
-  <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
 <form id="form1" name="form1" method="post" action="login.php">

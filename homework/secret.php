@@ -18,15 +18,19 @@ if(!isset($_SESSION["uid"])){
 </head>
 <body>
 
-<table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
+<table>
   <tr>
-    <td align="center" bgcolor="#CCCCCC"><font color="#FFFFFF">會員系統 － 會員專用</font></td>
+    <td>會員系統 － 會員專用</td>
   </tr>
   <tr>
-    <td align="center" valign="baseline">This page for member only.</td>
+    <td>This page for member only.</td>
   </tr>
   <tr>
-    <td align="center" bgcolor="#CCCCCC"><a href="index.php">回首頁</a></td>
+    <td>
+      <a href="index.php">回首頁</a>
+      |
+      <a href="login.php?signout=1">登出</a>
+    </td>
   </tr>
 </table>
 

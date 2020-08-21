@@ -18,12 +18,12 @@ if(isset($_SESSION["uid"])){
 </head>
 <body>
 
-<table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
+<table>
   <tr>
-    <td align="center" bgcolor="#CCCCCC"><font color="#FFFFFF">會員系統 - 首頁</font></td>
+    <td>會員系統 - 首頁</td>
   </tr>
   <tr>
-    <td align="center" valign="baseline">
+    <td valign="baseline">
 
       <?php if($userName == "GUEST") { ?>
         <a href="login.php">登入</a> 
@@ -35,7 +35,7 @@ if(isset($_SESSION["uid"])){
     </td>
   </tr>
   <tr>
-    <td align="center" bgcolor="#CCCCCC">Welcome <?= $userName ?></td>
+    <td>Welcome <?= $userName ?></td>
   </tr>
 </table>
 
