@@ -14,6 +14,7 @@ if(!isset($_SESSION["uid"])){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Lag - Member Page</title>
+<link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
 
