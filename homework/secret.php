@@ -1,6 +1,8 @@
 <?php
 
-if(!isset($_COOKIE["uid"])){
+session_start();
+
+if(!isset($_SESSION["uid"])){
   header("location: login.php?tologin=1");
   exit();
 }
