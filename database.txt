@@ -6,7 +6,7 @@ USE login;
 CREATE TABLE member(
     id int not null auto_increment primary key,
     userName varchar(20) not null,
-    password varchar(20) not null
+    userPassword varchar(20) not null
 );
 
-INSERT INTO member (userName, password) VALUES ('Dent', '0204');
+INSERT INTO member (userName, userPassword) VALUES ('Dent', '0204');

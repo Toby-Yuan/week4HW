@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require_once('connect.php');
 
 if(isset($_GET["signout"])){
   // setcookie("uid", "GUEST", time() - 60 * 60 * 24 * 7);
@@ -13,9 +14,18 @@ if(isset($_GET["signout"])){
 
 if(isset($_POST["btnOK"])){
   $userName = $_POST["txtUserName"];
+  $password = $_POST["txtPassword"];
+
   if($userName != ""){
     // setcookie("uid", $userName);
     $_SESSION["uid"] = $userName;
+
+    $insertIn = <<<insertToDb
+    INSERT INTO member (userName, userPassword) 
+    VALUES ('$userName', '$password');
+    insertToDb;
+    $result = mysqli_query($link, $insertIn);
+
     header("location: index.php");
     exit();
   }
@@ -28,9 +38,18 @@ if(isset($_POST["btnHome"])){
 
 if(isset($_POST["btnLogin"])){
   $userName = $_POST["txtUserName"];
+  $password = $_POST["txtPassword"];
+
   if($userName != ""){
     // setcookie("uid", $userName);
     $_SESSION["uid"] = $userName;
+
+    $insertIn = <<<insertToDb
+    INSERT INTO member (userName, userPassword) 
+    VALUES ('$userName', '$password');
+    insertToDb;
+    $result = mysqli_query($link, $insertIn);
+
     header("location: secret.php");
     exit();
   }
