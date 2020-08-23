@@ -71,11 +71,11 @@ if(isset($_POST["btnLogin"])){
     </tr>
     <tr>
       <td width="80" align="center" valign="baseline">帳號</td>
-      <td valign="baseline"><input type="text" name="txtUserName" id="txtUserName" /></td>
+      <td valign="baseline"><input type="text" name="txtUserName" id="txtUserName" placeholder="請輸入8~15位的英文或數字" pattern="\w{8,15}" required /></td>
     </tr>
     <tr>
       <td width="80" align="center" valign="baseline">密碼</td>
-      <td valign="baseline"><input type="password" name="txtPassword" id="txtPassword" /></td>
+      <td valign="baseline"><input type="password" name="txtPassword" id="txtPassword" placeholder="請輸入8~15位的英文或數字" pattern="\w{8,15}" required /></td>
     </tr>
     <tr>
       <td colspan="2">
