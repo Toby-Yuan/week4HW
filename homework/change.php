@@ -33,6 +33,11 @@ if(isset($_POST["btnOK"])){
     }
 }
 
+if(isset($_POST["btnHome"])){
+    header("location: secret.php");
+    exit();
+}
+
 ?>
 
 <html>
