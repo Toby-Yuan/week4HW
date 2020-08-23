@@ -30,6 +30,8 @@ if(!isset($_SESSION["uid"])){
       <a href="index.php">回首頁</a>
       |
       <a href="login.php?signout=1">登出</a>
+      |
+      <a href="change.php">更改資料</a>
     </td>
   </tr>
 </table>
