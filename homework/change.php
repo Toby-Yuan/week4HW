@@ -9,6 +9,29 @@ SELECT * FROM member WHERE userName = '$userId';
 findSql;
 $result = mysqli_query($link, $find);
 $row = mysqli_fetch_assoc($result);
+$id = $row["id"];
+// echo $id;
+
+if(isset($_POST["btnOK"])){
+    $userName = $_POST["txtUserName"];
+    $password = $_POST["txtPassword"];
+    // echo $userName;
+    // echo $password;
+
+    if($userName != ""){
+        $_SESSION["uid"] = $userName;
+
+        $update = <<<updateSql
+        UPDATE member 
+        SET userName = '$userName', userPassword = '$password'
+        WHERE id = $id;
+        updateSql;
+        $updateTo = mysqli_query($link, $update);
+
+        header("location: secret.php");
+        exit();
+    }
+}
 
 ?>
 
@@ -19,7 +42,7 @@ $row = mysqli_fetch_assoc($result);
   <link rel="stylesheet" href="./CSS/styleLogin.css">
 </head>
 <body>
-<form id="form1" name="form1" method="post" action="login.php">
+<form id="form1" name="form1" method="post" action="">
   <table>
     <tr>
       <td colspan="2">會員系統 - 更改資料</td>
@@ -36,8 +59,6 @@ $row = mysqli_fetch_assoc($result);
       <td colspan="2">
       
       <input type="submit" name="btnOK" id="btnOK" value="確定" />
-      
-      <input type="reset" name="btnReset" id="btnReset" value="重設" />
       <input type="submit" name="btnHome" id="btnHome" value="取消更改" />
       </td>
     </tr>
